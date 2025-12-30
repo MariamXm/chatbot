@@ -1,0 +1,26 @@
+# Streamlit for web UI
+streamlit==1.25.0
+
+# OpenAI API for LLM responses
+openai==1.32.0
+
+# HTTP requests
+requests==2.31.0
+
+# LangChain utilities (if used in llm_connector)
+langchain==0.1.0
+
+# Memory client
+mem0-client==0.1.0
+
+# Optional: dotenv for environment variable management
+python-dotenv==1.1.1
+
+# Optional: rich for better logging (used internally by some packages)
+rich==13.6.0
+
+# Optional: any async HTTP client if your LLM connector is async
+httpx==0.26.1
+
+# Optional: Groq Python SDK (if using Groq from Python)
+groq==0.1.4
