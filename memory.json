@@ -1,0 +1,18 @@
+{
+  "mariam_user": {
+    "name": "mariam",
+    "age": "25",
+    "like": "?",
+    "questions": [
+      "i like to read and listen to music",
+      "what is blockchain?",
+      "what did i last ask you?",
+      "what is my name?",
+      "what do i like"
+    ],
+    "facts": {
+      "name": "mariam",
+      "like": ""
+    }
+  }
+}

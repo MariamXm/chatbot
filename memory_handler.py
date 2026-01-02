@@ -1,29 +1,98 @@
+# # memory_handler.py
+# import json
+# import os
+
+# DB_FILE = "memory.json"
+
+# def _load():
+#     if not os.path.exists(DB_FILE):
+#         return {}
+#     with open(DB_FILE, "r") as f:
+#         return json.load(f)
+
+# def _save(data):
+#     with open(DB_FILE, "w") as f:
+#         json.dump(data, f, indent=2)
+
+# # ---------- FACT MEMORY ----------
+# def save_fact(user_id: str, key: str, value: str):
+#     data = _load()
+#     data.setdefault(user_id, {})
+#     data[user_id].setdefault("facts", {})
+#     data[user_id]["facts"][key] = value
+#     _save(data)
+
+# def get_all_facts(user_id: str):
+#     data = _load()
+#     return data.get(user_id, {}).get("facts", {})
+
+# # ---------- CONVERSATION MEMORY ----------
+# def save_question(user_id: str, question: str, limit=5):
+#     data = _load()
+#     data.setdefault(user_id, {})
+#     data[user_id].setdefault("questions", [])
+
+#     data[user_id]["questions"].append(question)
+#     data[user_id]["questions"] = data[user_id]["questions"][-limit:]
+
+#     _save(data)
+
+# def get_questions(user_id: str):
+#     data = _load()
+#     return data.get(user_id, {}).get("questions", [])
+
+# def clear_user_memory(user_id: str):
+#     data = _load()
+#     if user_id in data:
+#         del data[user_id]
+#         _save(data)
+
 # memory_handler.py
-from mem0 import Mem0
+import json
+import os
 
-# Initialize Mem0 for persistent storage (creates DB file automatically)
-memory = Mem0("chatbot_memory.db")  # database file for persistence
+DB_FILE = "memory.json"
 
-def add_fact(user_id: str, key: str, value: str):
-    """Add or update a user fact"""
-    memory.set(f"{user_id}_{key}", value)
+def _load():
+    if not os.path.exists(DB_FILE):
+        return {}
+    with open(DB_FILE, "r") as f:
+        return json.load(f)
 
-def get_fact(user_id: str, key: str):
-    """Retrieve a fact for a user"""
-    return memory.get(f"{user_id}_{key}")
+def _save(data):
+    with open(DB_FILE, "w") as f:
+        json.dump(data, f, indent=2)
 
-def get_all_facts(user_id: str):
-    """Retrieve all facts for a user"""
-    keys = memory.keys()
-    user_facts = {}
-    for k in keys:
-        if k.startswith(f"{user_id}_"):
-            fact_key = k[len(user_id)+1:]
-            user_facts[fact_key] = memory.get(k)
-    return user_facts
+# ---------- FACT MEMORY ----------
+def save_fact_json(user_id: str, key: str, value: str):
+    """Save a fact in local JSON"""
+    data = _load()
+    data.setdefault(user_id, {})
+    data[user_id].setdefault("facts", {})
+    data[user_id]["facts"][key] = value
+    _save(data)
 
-def clear_memory(user_id: str):
-    """Clear all memory for a user"""
-    for k in memory.keys():
-        if k.startswith(f"{user_id}_"):
-            memory.delete(k)
+def get_facts_json(user_id: str):
+    """Get facts from JSON"""
+    data = _load()
+    return data.get(user_id, {}).get("facts", {})
+
+# ---------- QUESTION MEMORY ----------
+def save_question_json(user_id: str, question: str, limit=5):
+    data = _load()
+    data.setdefault(user_id, {})
+    data[user_id].setdefault("questions", [])
+    data[user_id]["questions"].append(question)
+    data[user_id]["questions"] = data[user_id]["questions"][-limit:]
+    _save(data)
+
+def get_questions_json(user_id: str):
+    data = _load()
+    return data.get(user_id, {}).get("questions", [])
+
+# ---------- CLEAR MEMORY ----------
+def clear_user_memory_json(user_id: str):
+    data = _load()
+    if user_id in data:
+        del data[user_id]
+        _save(data)
