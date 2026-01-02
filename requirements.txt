@@ -1,10 +1,5 @@
-streamlit==1.25.0
-openai==1.32.0
+streamlit==1.26.0
 requests==2.31.0
-langchain==0.1.0
-mem0-client==0.1.0
-python-dotenv==1.1.1
-rich==14.2.0
-markdown-it-py==4.0.0
-mdurl==0.1.2
-pygments==2.19.2
+python-dotenv==1.0.0
+mem0==0.1.7
+groq==1.0.10
