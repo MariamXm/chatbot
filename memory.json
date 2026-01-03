@@ -4,11 +4,11 @@
     "age": "25",
     "like": "?",
     "questions": [
-      "i like to read and listen to music",
-      "what is blockchain?",
+      "what do i like",
+      "what is my name",
       "what did i last ask you?",
-      "what is my name?",
-      "what do i like"
+      "what is blockchain",
+      "what was my last question?"
     ],
     "facts": {
       "name": "mariam",
