@@ -3,3 +3,4 @@ requests==2.31.0
 python-dotenv==1.0.1
 mem0==0.1.115
 groq==1.0.0
+rich==13.7.1
