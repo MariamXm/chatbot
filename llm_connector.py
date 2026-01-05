@@ -5,9 +5,11 @@ from groq import Groq
 from memory_handler import save_fact_json, get_facts_json, save_question_json, get_questions_json
 from mem0_handler import save_fact_mem0, get_facts_mem0, save_question_mem0, get_questions_mem0
 
-load_dotenv()
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+if not GROQ_API_KEY:
+    raise RuntimeError("GROQ_API_KEY not set")
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+# client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 MODEL = "llama-3.3-70b-versatile"
 
 def extract_facts(text):
