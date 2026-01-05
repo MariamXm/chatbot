@@ -1,5 +1,4 @@
 streamlit==1.31.1
 groq==1.0.0
-python-dotenv==1.0.1
 mem0ai==0.1.115
 requests==2.31.0
