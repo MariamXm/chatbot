@@ -4,15 +4,15 @@
     "age": "25",
     "like": "?",
     "questions": [
-      "what do i like",
-      "what is my name",
-      "what did i last ask you?",
-      "what is blockchain",
-      "what was my last question?"
+      "explain the word beauty",
+      "my name is mariam",
+      "i like dark theme",
+      "i study at Comsats",
+      "which theme do i like?"
     ],
     "facts": {
       "name": "mariam",
-      "like": ""
+      "like": "?"
     }
   }
 }

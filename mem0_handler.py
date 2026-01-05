@@ -1,4 +1,3 @@
-# mem0_handler.py
 from mem0 import MemoryClient
 import os
 from dotenv import load_dotenv
